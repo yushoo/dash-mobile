@@ -5,7 +5,7 @@ This is the mobile application of my personal project called Dash.
 
 - Possible usages:  
     - ice breakers for small organizations or clubs
-    - Communicating with clients without exchanging social media or other personal contact information
+    - Communicating with clients without exchanging social media or other sensitive contact information
     - Finding new friends / networking by posting chatroom id's publically
 
 Tech Stack: React Native, socket.io, javascript<br>
