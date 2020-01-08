@@ -8,5 +8,5 @@ This is the mobile application of my personal project called Dash.
     - Communicating with clients without exchanging social media or other personal contact information
     - Finding new friends / networking by posting chatroom id's publically
 
-Tech Stack: React Native, socket.io, javascript
+Tech Stack: React Native, socket.io, javascript<br>
 UI/UX: Material Design (Still experimenting)
