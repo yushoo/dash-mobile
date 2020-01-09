@@ -10,3 +10,7 @@ This is the mobile application of my personal project called Dash.
 
 Tech Stack: React Native, socket.io, javascript<br>
 UI/UX: Material Design (Still experimenting)
+
+#### Todo:
+- Join Page
+- Chatroom 
