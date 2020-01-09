@@ -1,7 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
 export default function App() {
+  const [name, setName] = useState('');
+  const [room, setRoom] = useState('');
+
+  const nameChangeHandler = (enteredText) => {
+    setName(enteredText);
+  };
+
+  const roomChangeHandler = (enteredText) => {
+    setRoom(enteredText);
+  };
+
+  const joinRoomHandler = () => {
+    console.log(name + ' ' +room);
+  }
+
   return (
     <View style={styles.outerContainer}>
       <View style={styles.topContainer}>
@@ -9,13 +24,18 @@ export default function App() {
       </View>
       <View style={styles.inputContainer}>
         <View style={styles.inputArea}>
-           <TextInput placeholder="Name" placeholderTextColor="gray"/>
+           <TextInput placeholder="Name" 
+           placeholderTextColor="gray"
+           onChangeText={nameChangeHandler}/>
         </View>
         <View style={styles.inputArea}>
-          <TextInput placeholder="Chat Room" placeholderTextColor="gray"/>
+          <TextInput placeholder="Chat Room" 
+          placeholderTextColor="gray"
+          onChangeText={roomChangeHandler}/>
         </View>
         <View style={styles.joinButton} >
-          <Button title="Join" />
+          <Button title="Join" 
+            onPress={joinRoomHandler}/>
       </View>
       </View>
     </View>
