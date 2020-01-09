@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Modal } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState('');
@@ -18,27 +18,29 @@ export default function App() {
   }
 
   return (
-    <View style={styles.outerContainer}>
-      <View style={styles.topContainer}>
-        <Text style={styles.titleText}>Dash</Text>
-      </View>
-      <View style={styles.inputContainer}>
-        <View style={styles.inputArea}>
-           <TextInput placeholder="Name" 
-           placeholderTextColor="gray"
-           onChangeText={nameChangeHandler}/>
+    <Modal visible={true} animationType="slide">
+      <View style={styles.outerContainer}>
+        <View style={styles.topContainer}>
+          <Text style={styles.titleText}>Dash</Text>
         </View>
-        <View style={styles.inputArea}>
-          <TextInput placeholder="Chat Room" 
-          placeholderTextColor="gray"
-          onChangeText={roomChangeHandler}/>
+        <View style={styles.inputContainer}>
+          <View style={styles.inputArea}>
+            <TextInput placeholder="Name" 
+            placeholderTextColor="gray"
+            onChangeText={nameChangeHandler}/>
+          </View>
+          <View style={styles.inputArea}>
+            <TextInput placeholder="Chat Room" 
+            placeholderTextColor="gray"
+            onChangeText={roomChangeHandler}/>
+          </View>
+          <View style={styles.joinButton} >
+            <Button title="Join" 
+              onPress={joinRoomHandler}/>
+          </View>
         </View>
-        <View style={styles.joinButton} >
-          <Button title="Join" 
-            onPress={joinRoomHandler}/>
       </View>
-      </View>
-    </View>
+    </Modal>  
   );
 }
 
