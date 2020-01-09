@@ -8,9 +8,15 @@ export default function App() {
         <Text style={styles.titleText}>Dash</Text>
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.inputArea} placeholder="Name"/>
-        <TextInput style={styles.inputArea} placeholder="Chat Room"/>
-        <Button title="Go"/>
+        <View style={styles.inputArea}>
+           <TextInput placeholder="Name" placeholderTextColor="gray"/>
+        </View>
+        <View style={styles.inputArea}>
+          <TextInput placeholder="Chat Room" placeholderTextColor="gray"/>
+        </View>
+        <View style={styles.joinButton} >
+          <Button title="Join" />
+      </View>
       </View>
     </View>
   );
@@ -18,22 +24,34 @@ export default function App() {
 
 const styles = StyleSheet.create({
   outerContainer: {
-    backgroundColor: '#ffb65c',
+    backgroundColor: '#D1C4E9',
     flex:1
   },
   topContainer: {
    padding: '35%',
   },
   titleText: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 'bold',
+    // adjustsFontSizeToFit: true,
+    fontSize: 40
   },
   inputContainer: {
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ffb65c'
+    backgroundColor: '#D1C4E9'
   },
   inputArea: {
-    paddingBottom: 10
+    borderRadius: 10 ,
+    backgroundColor: '#ffffff',
+    color: '#000000',
+    padding: 5,
+    margin: '2%'
+  }, 
+  joinButton: { 
+    borderRadius: 100,
+    justifyContent: 'space-between',
+    width: '40%',
+    marginTop: 10
   },
 });
