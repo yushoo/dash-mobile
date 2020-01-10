@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TextInput, Button, Modal } from 'react-native';
 export default function App() {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
+  const [joinVisible, setJoinVisible] = useState(true);
 
   const nameChangeHandler = (enteredText) => {
     setName(enteredText);
@@ -14,11 +15,12 @@ export default function App() {
   };
 
   const joinRoomHandler = () => {
-    console.log(name + ' ' +room);
+    setJoinVisible(false);
+    //console.log(name + ' ' +room);
   }
 
   return (
-    <Modal visible={true} animationType="slide">
+    <Modal visible={joinVisible} animationType="slide">
       <View style={styles.outerContainer}>
         <View style={styles.topContainer}>
           <Text style={styles.titleText}>Dash</Text>
