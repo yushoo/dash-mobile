@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Modal } from 'react-native';
+
 
 import Chat from '../Chat/Chat';
 
@@ -9,6 +10,14 @@ const Join = ({navigation}) => {
     const [room, setRoom] = useState('');
     const [joinVisible, setJoinVisible] = useState(true);
     const [chatVisible, setChatVisible] = useState(false);
+
+    useEffect(() => {
+        const check = navigation.getParam('joinVisible');
+            if(check){
+                setJoinVisible(true);
+                
+            }
+    });
 
     const nameChangeHandler = (enteredText) => {
     setName(enteredText);
@@ -22,34 +31,34 @@ const Join = ({navigation}) => {
     setJoinVisible(false);
     console.log(name + ' ' +room);
     console.log(navigation);
-    navigation.navigate('Chat');
+    navigation.navigate('Chat',{name: this.name, room: this.room});
     }
 
     return (
-        <Modal visible={joinVisible} animationType="slide">
+        // <Modal visible={joinVisible} animationType="slide">
           <View style={styles.outerContainer}>
-        <View style={styles.topContainer}>
-           <Text style={styles.titleText}>Dash</Text>
-         </View>
-         <View style={styles.inputContainer}>
-           <View style={styles.inputArea}>
-             <TextInput placeholder="Name" 
-             placeholderTextColor="gray"
-             onChangeText={nameChangeHandler}/>
-           </View>
-           <View style={styles.inputArea}>
-             <TextInput placeholder="Chat Room" 
-             placeholderTextColor="gray"
-             onChangeText={roomChangeHandler}/>
-           </View>
-           <View style={styles.joinButton} >
-             <Button title="Join" 
-               onPress={joinRoomHandler}
-               />
-           </View>
-         </View>
+            <View style={styles.topContainer}>
+                <Text style={styles.titleText}>Dash</Text>
+            </View>
+            <View style={styles.inputContainer}>
+                <View style={styles.inputArea}>
+                    <TextInput placeholder="Name" 
+                    placeholderTextColor="gray"
+                    onChangeText={nameChangeHandler}/>
+                </View>
+                <View style={styles.inputArea}>
+                    <TextInput placeholder="Chat Room" 
+                    placeholderTextColor="gray"
+                    onChangeText={roomChangeHandler}/>
+                </View>
+                <View style={styles.joinButton} >
+                    <Button title="Join" 
+                    onPress={joinRoomHandler}
+                    />
+                </View>
+            </View>
        </View>
-     </Modal>  
+    //  </Modal>  
     );
 
     
