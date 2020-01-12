@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Modal } from 'react-native';
 import io from "socket.io-client";
 
+let socket;
+
 const Chat = ({navigation}) => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
@@ -13,11 +15,27 @@ const Chat = ({navigation}) => {
     //Socket Server connection
     const ENDPOINT = 'https://dash-react-chat-app.herokuapp.com/'; 
 
-    // Socket connection
+    // Socket 
+    // Connection
     useEffect(() => {
-        
+        setName(JSON.stringify(navigation.getParam('name','no name')));
+        setRoom(JSON.stringify(navigation.getParam('name','no name')));
+
+        socket = io(ENDPOINT);
+
+        socket.emit('join', { name, room }, (error) => {
+            //Callback if any error to connect to socket server
+            if(error){
+                alert(error);
+            }
+        });
     });
-    
+
+    // Message Handler
+    useEffect(() => {
+
+    });
+
 
     // useEffect(() => {
     //     const { name, room } = queryString.parse(location.search);
@@ -56,9 +74,6 @@ const Chat = ({navigation}) => {
     backToJoinHandler = () => {
         navigation.navigate('Join', {joinVisible: true});
     }
-
-
-    
 
     return(
         <View>
