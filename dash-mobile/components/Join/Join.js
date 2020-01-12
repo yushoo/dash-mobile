@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Modal } from 'react-native';
 
+import Chat from '../Chat/Chat';
+
+
 const Join = ({navigation}) => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
@@ -17,7 +20,9 @@ const Join = ({navigation}) => {
 
     const joinRoomHandler = () => {
     setJoinVisible(false);
-    //console.log(name + ' ' +room);
+    console.log(name + ' ' +room);
+    console.log(navigation);
+    navigation.navigate('Chat');
     }
 
     return (
@@ -39,7 +44,8 @@ const Join = ({navigation}) => {
            </View>
            <View style={styles.joinButton} >
              <Button title="Join" 
-               onPress={joinRoomHandler}/>
+               onPress={joinRoomHandler}
+               />
            </View>
          </View>
        </View>

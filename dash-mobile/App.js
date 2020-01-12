@@ -8,9 +8,8 @@ import Join from './components/Join/Join';
 import Chat from './components/Chat/Chat';
 
 const MainNavigator = createStackNavigator({
-    Join: {
-      screen: Join,
-    }
+    Join: {screen: Join,},
+    Chat: {screen: Chat,}
   },
     {
       // Specifing Initial Screen
