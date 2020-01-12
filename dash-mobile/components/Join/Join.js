@@ -8,16 +8,16 @@ import Chat from '../Chat/Chat';
 const Join = ({navigation}) => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
-    const [joinVisible, setJoinVisible] = useState(true);
+    // const [joinVisible, setJoinVisible] = useState(true);
     const [chatVisible, setChatVisible] = useState(false);
 
-    useEffect(() => {
-        const check = navigation.getParam('joinVisible');
-            if(check){
-                setJoinVisible(true);
+    // useEffect(() => {
+    //     const check = navigation.getParam('joinVisible');
+    //         if(check){
+    //             setJoinVisible(true);
                 
-            }
-    });
+    //         }
+    // });
 
     const nameChangeHandler = (enteredText) => {
     setName(enteredText);
@@ -28,7 +28,7 @@ const Join = ({navigation}) => {
     };
 
     const joinRoomHandler = () => {
-    setJoinVisible(false);
+    // setJoinVisible(false);
     console.log(name + ' ' +room);
     console.log(navigation);
     navigation.navigate('Chat',{name: this.name, room: this.room});
