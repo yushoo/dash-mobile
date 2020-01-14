@@ -29,9 +29,9 @@ const Join = ({navigation}) => {
 
     const joinRoomHandler = () => {
     // setJoinVisible(false);
-    console.log(name + ' ' +room);
+    //console.log(name + ' ' +room);
     console.log(navigation);
-    navigation.navigate('Chat',{name: this.name, room: this.room});
+    navigation.navigate('Chat',{name: name, room: room});
     }
 
     return (

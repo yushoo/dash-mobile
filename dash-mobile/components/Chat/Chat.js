@@ -32,7 +32,7 @@ const Chat = ({navigation}) => {
                 alert(error);
             }
         });
-    });
+    }, [ENDPOINT, ]);
 
     // Message Handler
     useEffect(() => {
@@ -70,8 +70,12 @@ const Chat = ({navigation}) => {
         <View>
              {/* itemId: {JSON.stringify(navigation.getParam('itemId', 'NO-ID'))} */}
              <Text>Test Test Test</Text>
-            <Text>{JSON.stringify(navigation.getParam('name','no name'))}</Text>
-            <Text>{JSON.stringify(navigation.getParam('room','no name'))}</Text>
+            <Text>Hello {navigation.getParam('name','no name')}</Text>
+            <Text>Welcome to {navigation.getParam('room','no name')}</Text>
+            <Button title="debug tester"
+                onPress={() => {
+                    setName('asdf');
+                }}/>
             <Button title="back"
                 onPress={backToJoinHandler}/>
         </View>
