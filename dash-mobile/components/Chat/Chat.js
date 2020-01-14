@@ -33,9 +33,29 @@ const Chat = ({navigation}) => {
 
     // Message Handler
     useEffect(() => {
+        socket.on('message', (message)) ={
+            setMessages([...messages, message ]);
+        }
 
-    });
+        socket.on('roomData', ({ users }) => {
+            setUsers(users);
+          })
+      
+          //disconnect event. Server will be listening for disconnect event
+          return () => {
+            socket.emit('disconnect');
+            socket.off();
+          }
 
+    }), [messages];
+
+    const sendMessage = (event) => {
+        event.preventDefault();
+    
+        if(message) {
+          socket.emit('sendMessage', message, () => setMessage(''));
+        }
+      }
 
     // useEffect(() => {
     //     const { name, room } = queryString.parse(location.search);
