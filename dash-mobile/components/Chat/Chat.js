@@ -18,17 +18,17 @@ const Chat = ({navigation}) => {
     // Socket 
     // Connection
     useEffect(() => {
-        setName(JSON.stringify(navigation.getParam('name','no name')));
-        setRoom(JSON.stringify(navigation.getParam('name','no name')));
-
-        // Debugging
-        setName('ASDFASDFASDF');
-
         socket = io(ENDPOINT);
 
+        setName(navigation.getParam('name','no name'));
+        setRoom(navigation.getParam('name','no name'));
+        socket.emit('join', { name:'boi', room:'pizza'});
+
+        console.log(name+ ' '+ room);
         socket.emit('join', { name, room }, (error) => {
             //Callback if any error to connect to socket server
             if(error){
+                console.log('CONNECTION ERROR');
                 alert(error);
             }
         });
