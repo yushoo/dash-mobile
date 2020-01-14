@@ -21,6 +21,9 @@ const Chat = ({navigation}) => {
         setName(JSON.stringify(navigation.getParam('name','no name')));
         setRoom(JSON.stringify(navigation.getParam('name','no name')));
 
+        // Debugging
+        setName('ASDFASDFASDF');
+
         socket = io(ENDPOINT);
 
         socket.emit('join', { name, room }, (error) => {
@@ -33,21 +36,22 @@ const Chat = ({navigation}) => {
 
     // Message Handler
     useEffect(() => {
-        socket.on('message', (message)) ={
-            setMessages([...messages, message ]);
-        }
-
+        socket.on('message', (message) => {
+          //adding message to all messages
+          setMessages([...messages, message ]);
+        });
+    
         socket.on('roomData', ({ users }) => {
-            setUsers(users);
-          })
-      
-          //disconnect event. Server will be listening for disconnect event
-          return () => {
-            socket.emit('disconnect');
-            socket.off();
-          }
-
-    }), [messages];
+          setUsers(users);
+        })
+    
+        //disconnect event. Server will be listening for disconnect event
+        return () => {
+          socket.emit('disconnect');
+          socket.off();
+        }
+        // only run this useEffect when the messages array is changed
+      }, [messages])
 
     const sendMessage = (event) => {
         event.preventDefault();
@@ -57,49 +61,17 @@ const Chat = ({navigation}) => {
         }
       }
 
-    // useEffect(() => {
-    //     const { name, room } = queryString.parse(location.search);
-    //     socket = io(ENDPOINT);
-    //     setRoom(room);
-    //     setName(name)
-    
-    //     socket.emit('join', { name, room }, (error) => {
-    //       if(error) {
-    //         alert(error);
-    //       }
-    //     });
-    //   }, [ENDPOINT, location.search]);
-    
-    //   //to handle messages.
-    //   useEffect(() => {
-    //         socket.on('message', (message) => {
-    //         //adding message to all messages
-    //         setMessages([...messages, message ]);
-    //         })
-    
-    //         socket.on('roomData', ({ users }) => {
-    //         setUsers(users);
-    //         })
-    
-    //         //disconnect event. Server will be listening for disconnect event
-    //         return () => {
-    //         socket.emit('disconnect');
-    //         socket.off();
-    //         }
-    //     // only run this useEffect when the messages array is changed
-    //   }, [messages])
-    
-
     // handlers
-    backToJoinHandler = () => {
+    const backToJoinHandler = () => {
         navigation.navigate('Join', {joinVisible: true});
     }
 
     return(
         <View>
              {/* itemId: {JSON.stringify(navigation.getParam('itemId', 'NO-ID'))} */}
+             <Text>Test Test Test</Text>
             <Text>{JSON.stringify(navigation.getParam('name','no name'))}</Text>
-            <Text>{JSON.stringify(navigation.getParam('name','no name'))}</Text>
+            <Text>{JSON.stringify(navigation.getParam('room','no name'))}</Text>
             <Button title="back"
                 onPress={backToJoinHandler}/>
         </View>
