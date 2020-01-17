@@ -4,6 +4,7 @@ import io from "socket.io-client";
 
 //Components
 import Messages from '../Messages/Messages';
+import Input from '../Input/Input';
 
 let socket;
 
@@ -118,12 +119,20 @@ const Chat = ({navigation}) => {
                 <Messages messages={messages} name={name}/>
             </View>
 
-            <Button title="debug tester"
-                onPress={debugHandler}/>
-            <Button title="back"
-                onPress={backToJoinHandler}/>
-            <Button title="Disconnect" 
-                onPress={disconnectHandler} />
+            <View>
+                <Input />
+            </View>
+
+            <View>
+                <Button title='send'/>
+            </View>
+
+            {/* <Button title="debug tester"
+                onPress={debugHandler}/> */}
+            {/* <Button title="back"
+                onPress={backToJoinHandler}/> */}
+            {/* <Button title="Disconnect" 
+                onPress={disconnectHandler} /> */}
         </View>
     );
 }
