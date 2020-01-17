@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView} from 'react-native';
 
+import Message from './Message/Message';
 
 // should be passed in messages and name
-const Messages = () => {
+const Messages = ({ messages, name }) => {
     
     return(
         <View>
@@ -12,21 +13,7 @@ const Messages = () => {
                 onContentSizeChange={(contentWidth, contentHeight)=>{        
                     this.scrollView.scrollToEnd({animated: true});
                 }}>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                    <Text>Lorem</Text>
-                     {/* {messages.map((message, i) => <div key={i}><Message message={message} name={name}/></div>)} */}
+                     {messages.map((message, i) => <View key={i}><Message message={message} name={name}/></View>)}
             </ScrollView>
         </View>
     );

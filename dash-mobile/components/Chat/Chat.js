@@ -8,8 +8,8 @@ import Messages from '../Messages/Messages';
 let socket;
 
 const Chat = ({navigation}) => {
-    // const [name, setName] = useState('');
-    // const [room, setRoom] = useState('');
+    const [name, setName] = useState('');
+    const [room, setRoom] = useState('');
     const [users, setUsers] = useState('');
     //String og current message
     const [message, setMessage] = useState('');
@@ -49,16 +49,16 @@ const Chat = ({navigation}) => {
 
     // Message Handler
     useEffect(() => {
-        // socket.on('message', (message) => {
-        //   //adding message to all messages
-        //   console.log(message);
-        //   setMessages([...messages, message ]);
-        // });
+        socket.on('message', (message) => {
+          //adding message to all messages
+          console.log(message);
+          setMessages([...messages, message ]);
+        });
     
-        // socket.on('roomData', ({ users }) => {
-        //     console.log(message);
-        //   setUsers(users);
-        // })
+        socket.on('roomData', ({ users }) => {
+            console.log(message);
+          setUsers(users);
+        })
     
         //disconnect event. Server will be listening for disconnect event
         return () => {
@@ -91,8 +91,8 @@ const Chat = ({navigation}) => {
         let tempRoom = navigation.getParam('room','no name')
         socket = io(ENDPOINT);
 
-        // setName(tempName);
-        // setRoom(tempRoom);
+        setName(tempName);
+        setRoom(tempRoom);
         //socket.emit('join', { name:iname, room:iroom});
         //socket.emit('join', { name:'ASSSSSSSSSSSSS', room:'pizza'});
         
@@ -115,7 +115,7 @@ const Chat = ({navigation}) => {
             <Text>Welcome to {navigation.getParam('room','no name')}</Text>
             
             <View>
-                <Messages />
+                <Messages messages={messages} name={name}/>
             </View>
 
             <Button title="debug tester"
