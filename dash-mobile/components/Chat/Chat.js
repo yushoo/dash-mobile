@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Modal } from 'react-native';
 import io from "socket.io-client";
 
+//Components
+import Messages from '../Messages/Messages';
+
 let socket;
 
 const Chat = ({navigation}) => {
@@ -93,7 +96,7 @@ const Chat = ({navigation}) => {
         //socket.emit('join', { name:iname, room:iroom});
         //socket.emit('join', { name:'ASSSSSSSSSSSSS', room:'pizza'});
         
-        console.log(name+ ' '+ room);
+        // console.log(name+ ' '+ room);
         socket.emit('join', { tempName, tempRoom }, (error) => {
             //Callback if any error to connect to socket server
             if(error){
@@ -110,6 +113,11 @@ const Chat = ({navigation}) => {
              {/* <Text>Test Test Test</Text> */}
             <Text>Hello {navigation.getParam('name','no name')}</Text>
             <Text>Welcome to {navigation.getParam('room','no name')}</Text>
+            
+            <View>
+                <Messages />
+            </View>
+
             <Button title="debug tester"
                 onPress={debugHandler}/>
             <Button title="back"
