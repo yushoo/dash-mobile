@@ -7,7 +7,7 @@ import Message from './Message/Message';
 const Messages = ({ messages, name }) => {
     
     return(
-        <View>
+        <View style={styles.messages}>
             <ScrollView
                 ref={ref => this.scrollView = ref}
                 onContentSizeChange={(contentWidth, contentHeight)=>{        
@@ -19,8 +19,12 @@ const Messages = ({ messages, name }) => {
     );
 }
 
-const styles = StyleSheet.create({
-
+const styles = StyleSheet.create({  
+    messages: {
+        padding: '5%',
+        overflow: 'scroll',
+        display: 'flex',
+    }
 });
 
 export default Messages;

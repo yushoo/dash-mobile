@@ -25,9 +25,6 @@ const Input = ({ message,
                     onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}/>
             </View>
             <View>
-                <Button title="debug" onPress={() => {console.log(message)}}/>
-            </View>
-            <View>
                 <Button title='send' onPress={(event) => {sendMessage(event); console.log(message)}}/>
             </View>
         </View>
