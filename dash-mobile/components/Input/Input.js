@@ -21,14 +21,14 @@ const Input = ({ message,
                     type="text"
                     value={message}
                     placeholder='your message here'
-                    onChangeText={text => {setMessage(text);console.log(message)}}
+                    onChangeText={text => {setMessage(text)}}
                     onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}/>
             </View>
             <View>
-                <Button title="debug" onPress={() => {console.log(message);console.log('asdfasdfasdf')}}/>
+                <Button title="debug" onPress={() => {console.log(message)}}/>
             </View>
             <View>
-                <Button title='send' onClick={(event) => sendMessage(event), console.log(message)}/>
+                <Button title='send' onPress={(event) => {sendMessage(event); console.log(message)}}/>
             </View>
         </View>
     );
