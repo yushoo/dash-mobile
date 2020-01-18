@@ -16,5 +16,7 @@ UI/UX: Material Design (Still experimenting)
 - Chatroom 
 
 
-#### Bugs to Fix
+#### Bugs/Fixes
 - Find native equivalent to web event.target
+    - FIX: Switch to onPress, text => {setMessage(text)}
+- For react native buttons. use onPress
