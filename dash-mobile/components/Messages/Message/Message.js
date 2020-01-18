@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     messageBox: {
         backgroundColor: '#F3F3F3',
         borderRadius: 20,
-        
+
     },
     messageContainer: {
         display: 'flex',
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     sentText: {
         display: 'flex',
         alignItems: 'center',
-        fontFamily: 'Helvetica',
+        fontFamily: 'Roboto',
         color: '#828282',
         letterSpacing:0.3,
     },
