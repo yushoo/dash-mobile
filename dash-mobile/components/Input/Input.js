@@ -9,6 +9,11 @@ const Input = ({ message,
         console.log('IN THE INPUT COMPONENT USEEFFECT '+ message);
     });
 
+    const handleTextChange = (e,text) => {
+        e.persist();
+        setMessage(text);
+    }
+
     return (
         <View>
             <View>
@@ -16,11 +21,11 @@ const Input = ({ message,
                     type="text"
                     value={message}
                     placeholder='your message here'
-                    onChange={(event) => setMessage(event.target.value)}
+                    onChangeText={text => {setMessage(text);console.log(message)}}
                     onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}/>
             </View>
             <View>
-                <Button title="debug" onClick={console.log(message)}/>
+                <Button title="debug" onPress={() => {console.log(message);console.log('asdfasdfasdf')}}/>
             </View>
             <View>
                 <Button title='send' onClick={(event) => sendMessage(event), console.log(message)}/>

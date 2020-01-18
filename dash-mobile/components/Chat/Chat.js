@@ -128,9 +128,9 @@ const Chat = ({navigation}) => {
                     sendMessage={sendMessage}/>
             </View>
 
-            <View>
-                <Button onPress={console.log(messages)}/> 
-            </View>
+            {/* <View>
+                <Button onPress={console.log(message)}/> 
+            </View> */}
 
             {/* <Button title="debug tester"
                 onPress={debugHandler}/> */}
