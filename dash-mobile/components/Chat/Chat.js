@@ -12,7 +12,7 @@ const Chat = ({navigation}) => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
     const [users, setUsers] = useState('');
-    //String og current message
+    //String of current message
     const [message, setMessage] = useState('');
     //Array of all messages of a chat instance
     const [messages, setMessages] = useState([]);
@@ -116,15 +116,20 @@ const Chat = ({navigation}) => {
             <Text>Welcome to {navigation.getParam('room','no name')}</Text>
             
             <View>
-                <Messages messages={messages} name={name}/>
+                <Messages 
+                    messages={messages} 
+                    name={name}/>
             </View>
 
             <View>
-                <Input />
+                <Input 
+                    message={message} 
+                    setMessage={setMessage} 
+                    sendMessage={sendMessage}/>
             </View>
 
             <View>
-                <Button title='send'/>
+                <Button onPress={console.log(messages)}/> 
             </View>
 
             {/* <Button title="debug tester"

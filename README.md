@@ -14,3 +14,7 @@ UI/UX: Material Design (Still experimenting)
 #### Todo:
 - Join Page
 - Chatroom 
+
+
+#### Bugs to Fix
+- Find native equivalent to web event.target
