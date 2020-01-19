@@ -109,38 +109,41 @@ const Chat = ({navigation}) => {
     }
 
     return(
-        <View>
-             {/* itemId: {JSON.stringify(navigation.getParam('itemId', 'NO-ID'))} */}
-             {/* <Text>Test Test Test</Text> */}
+        <View style={styles.outerContainer}>
             <Text>Hello {navigation.getParam('name','no name')}</Text>
             <Text>Welcome to {navigation.getParam('room','no name')}</Text>
             
-            <View>
-                <Messages 
-                    messages={messages} 
-                    name={name}/>
+            <View style={styles.container}>
+                <View>
+                    <Messages 
+                        messages={messages} 
+                        name={name}/>
+                </View>
+
+                <View>
+                    <Input 
+                        message={message} 
+                        setMessage={setMessage} 
+                        sendMessage={sendMessage}/>
+                </View>
             </View>
-
-            <View>
-                <Input 
-                    message={message} 
-                    setMessage={setMessage} 
-                    sendMessage={sendMessage}/>
-            </View>
-
-            {/* <View>
-                <Button onPress={console.log(message)}/> 
-            </View> */}
-
-            {/* <Button title="debug tester"
-                onPress={debugHandler}/> */}
-            {/* <Button title="back"
-                onPress={backToJoinHandler}/> */}
-            {/* <Button title="Disconnect" 
-                onPress={disconnectHandler} /> */}
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    outerContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+
+    },
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: '#FFFFFF'
+
+    }
+});
 
 export default Chat;
 

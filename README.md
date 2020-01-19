@@ -21,6 +21,8 @@ UI/UX: Material Design (Still experimenting)
     - FIX: Switch to onPress, text => {setMessage(text)}
 - For react native buttons. use onPress
 - Certain fonts are specific to os of device
+- Styling issues
+    - realize that styles affect components that have been added
 
 #### Learning Sources
 - https://davidwalsh.name/websocket
