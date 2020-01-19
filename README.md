@@ -20,3 +20,8 @@ UI/UX: Material Design (Still experimenting)
 - Find native equivalent to web event.target
     - FIX: Switch to onPress, text => {setMessage(text)}
 - For react native buttons. use onPress
+- Certain fonts are specific to os of device
+
+#### Learning Sources
+- https://davidwalsh.name/websocket
+    - Good read on socket.io and websockets 
